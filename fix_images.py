@@ -2,7 +2,6 @@
 
 from PIL import Image
 import os
-import shutil
 
 def process_images(input_folder, output_folder):
     if not os.path.exists(output_folder):
@@ -27,8 +26,8 @@ def process_images(input_folder, output_folder):
             if resized_img.mode in ('RGBA', 'LA', 'P'):
                 resized_img = img.convert('RGB')
             # Save the image to the new folder with .jpeg extension
-            output_filename = os.path.splitext(filename)[0] + ".jpeg"
-            output_path = os.path.join(output_folder, output_filename)
+            #output_filename = os.path.splitext(filename)[0] + ".jpeg"
+            output_path = os.path.join(output_folder, filename)
             resized_img.save(output_path, "JPEG")
         except OSError:
             print(f"Error: {output_path} not saved to path")
